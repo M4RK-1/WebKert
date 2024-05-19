@@ -1,7 +1,7 @@
 /* src/app/app.component.scss */
 
 .sidenav-container {
-  height: 100vh; /* Full viewport height */
+  height: 97vh; /* Full viewport height */
 }
 
 .sidenav {
@@ -33,7 +33,7 @@
 
 .main-content {
   padding: 16px;
-  height: calc(100vh - 200px); /* Adjust based on toolbar height */
+  height: calc(100vh - 222px); /* Adjust based on toolbar height */
 }
 
 mat-sidenav {

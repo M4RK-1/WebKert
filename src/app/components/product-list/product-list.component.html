@@ -1,5 +1,5 @@
 <!-- src/app/components/product-list/product-list.component.html -->
-<div class="product-list">
+<div appHighlight class="product-list">
   <ng-container *ngIf="products.length > 0; else noProducts">
     <app-product-card
       *ngFor="let product of products"

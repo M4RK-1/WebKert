@@ -35,6 +35,8 @@ import { OrderHistoryService } from './services/order-history.service';
 import { CustomPipe } from './pipes/custom.pipe';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { HighlightDirective } from './directives/highlight.directive';
+import { TooltipDirective } from './directives/tooltip.directive';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { RegisterComponent } from './components/register/register.component';
     OrderHistoryComponent,
     UserProfileComponent,
     RegisterComponent,
+    TooltipDirective,
+    HighlightDirective,
     ProductCardComponent,
     OrderComponent,
     CustomPipe,
@@ -55,7 +59,7 @@ import { RegisterComponent } from './components/register/register.component';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    FormsModule, // <-- Add FormsModule here
+    FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
