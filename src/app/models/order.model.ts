@@ -1,14 +1,10 @@
 // src/app/models/order.model.ts
 
-export interface Order {
-  id: string;
-  userId: string;
-  products: OrderProduct[];
-  totalAmount: number;
-  orderDate: Date;
-}
+import { CartItem } from './cart-item.model';
 
-export interface OrderProduct {
-  productId: string;
-  quantity: number;
+export interface Order {
+  id?: string;
+  items: CartItem[];
+  location: string;
+  date: Date;
 }

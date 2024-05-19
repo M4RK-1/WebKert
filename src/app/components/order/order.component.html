@@ -1,0 +1,11 @@
+<!-- src/app/components/order/order.component.html -->
+<div class="order">
+  <h2>Order</h2>
+  <form [formGroup]="orderForm" (ngSubmit)="submitOrder()">
+    <mat-form-field>
+      <mat-label>Location</mat-label>
+      <input matInput formControlName="location" required>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Order</button>
+  </form>
+</div>

@@ -1,7 +1,9 @@
+// src/app/app.module.ts
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- Import FormsModule here
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../environments/environment';
@@ -26,10 +28,12 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
+import { OrderComponent } from './components/order/order.component';
 import { ProductService } from './services/product.service';
+import { CartService } from './services/cart.service';
+import { OrderHistoryService } from './services/order-history.service';
 import { CustomPipe } from './pipes/custom.pipe';
 import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -41,14 +45,15 @@ import { RegisterComponent } from './components/register/register.component';
     OrderHistoryComponent,
     UserProfileComponent,
     ProductCardComponent,
+    OrderComponent,
     CustomPipe,
-    LoginComponent,
-    RegisterComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    FormsModule, // <-- Add FormsModule here
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
@@ -61,10 +66,9 @@ import { RegisterComponent } from './components/register/register.component';
     MatGridListModule,
     MatSnackBarModule,
     MatListModule,
-    MatSidenavModule,
-    FormsModule
+    MatSidenavModule
   ],
-  providers: [ProductService],
+  providers: [ProductService, CartService, OrderHistoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

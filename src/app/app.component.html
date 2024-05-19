@@ -1,13 +1,12 @@
 <!-- src/app/app.component.html -->
-
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav mode="side" opened class="sidenav">
     <mat-nav-list class="nav-list">
       <a mat-list-item class="sidebar" routerLink="/products">Products</a>
       <a mat-list-item class="sidebar" routerLink="/cart">Cart</a>
-      <a mat-list-item class="sidebar" routerLink="/checkout">Checkout</a>
-      <a mat-list-item class="sidebar" routerLink="/orders">Order History</a>
-      <a mat-list-item class="sidebar" routerLink="/profile">Profile</a>
+      <a mat-list-item class="sidebar" *ngIf="(afAuth.authState | async)" routerLink="/order">Order</a>
+      <a mat-list-item class="sidebar" *ngIf="(afAuth.authState | async)" routerLink="/orders">Order History</a>
+      <a mat-list-item class="sidebar" *ngIf="(afAuth.authState | async)" routerLink="/profile">Profile</a>
       <a mat-list-item class="sidebar" *ngIf="!(afAuth.authState | async)" routerLink="/login">Login</a>
       <a mat-list-item class="sidebar" *ngIf="!(afAuth.authState | async)" routerLink="/register">Register</a>
       <a mat-list-item class="sidebar" *ngIf="afAuth.authState | async" (click)="logout()">Logout</a>

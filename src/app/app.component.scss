@@ -35,3 +35,14 @@
   padding: 16px;
   height: calc(100vh - 200px); /* Adjust based on toolbar height */
 }
+
+mat-sidenav {
+  width: 150px;
+  background: #f8f8f8;
+}
+
+mat-sidenav-content {
+  flex: 1;
+  padding: 0px;
+  box-sizing: border-box;
+}
