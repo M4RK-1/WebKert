@@ -34,6 +34,14 @@ export class CartComponent implements OnInit {
 
   removeItem(productId: string): void {
     this.cartService.removeCartItem(productId);
+    let temp = localStorage.getItem('cartItems');
+    console.log('Cart items on remove:', productId); // Debugging
+    if (temp) {
+      const cartItems = JSON.parse(temp);
+      const updatedCartItems = cartItems.filter((item: CartItem) => item.productId !== productId);
+      localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+    }
+
     this.cartItems = this.cartItems.filter(item => item.product.id !== productId);
   }
 
