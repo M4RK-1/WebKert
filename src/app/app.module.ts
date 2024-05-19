@@ -34,6 +34,7 @@ import { CartService } from './services/cart.service';
 import { OrderHistoryService } from './services/order-history.service';
 import { CustomPipe } from './pipes/custom.pipe';
 import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { LoginComponent } from './components/login/login.component';
     CheckoutComponent,
     OrderHistoryComponent,
     UserProfileComponent,
+    RegisterComponent,
     ProductCardComponent,
     OrderComponent,
     CustomPipe,
