@@ -1,8 +1,8 @@
-// src/app/components/order-history/order-history.component.ts
-
 import { Component, OnInit } from '@angular/core';
-import { OrderHistoryService } from '../../services/order-history.service';
-import { Order } from '../../models/order.model';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import firebase from 'firebase/compat/app';  // Ensure firebase is imported
 
 @Component({
   selector: 'app-order-history',
@@ -10,13 +10,16 @@ import { Order } from '../../models/order.model';
   styleUrls: ['./order-history.component.scss']
 })
 export class OrderHistoryComponent implements OnInit {
-  orders: Order[] = [];
+  orders$!: Observable<any[]>;  // Use definite assignment assertion
 
-  constructor(private orderHistoryService: OrderHistoryService) {}
+  constructor(private firestore: AngularFirestore) {}
 
   ngOnInit(): void {
-    this.orderHistoryService.getOrders().subscribe((orders) => {
-      this.orders = orders;
-    });
+    this.orders$ = this.firestore.collection('orders').valueChanges().pipe(
+      map(orders => orders.map((order: any) => ({  // Assert order as any type
+        ...order,
+        date: order.date instanceof firebase.firestore.Timestamp ? order.date.toDate() : null  // Convert Firestore Timestamp to Date
+      })))
+    );
   }
 }

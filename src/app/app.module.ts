@@ -1,9 +1,7 @@
-// src/app/app.module.ts
-
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- Import FormsModule here
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../environments/environment';
@@ -37,6 +35,9 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import { TooltipDirective } from './directives/tooltip.directive';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { TooltipDirective } from './directives/tooltip.directive';
     ProductCardComponent,
     OrderComponent,
     CustomPipe,
-    LoginComponent
+    LoginComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -68,13 +70,14 @@ import { TooltipDirective } from './directives/tooltip.directive';
     MatToolbarModule,
     MatIconModule,
     MatInputModule,
+    FlexLayoutModule,
     MatFormFieldModule,
     MatGridListModule,
     MatSnackBarModule,
     MatListModule,
     MatSidenavModule
   ],
-  providers: [ProductService, CartService, OrderHistoryService],
+  providers: [ProductService, CartService, OrderHistoryService, provideAnimationsAsync()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
