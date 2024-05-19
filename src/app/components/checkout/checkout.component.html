@@ -1,0 +1,12 @@
+<!-- src/app/components/checkout/checkout.component.html -->
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Full Name</mat-label>
+    <input matInput formControlName="fullName" required [ngStyle]="{ 'border-color': 'blue' }">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Address</mat-label>
+    <input matInput formControlName="address" required [ngStyle]="{ 'border-color': 'green' }">
+  </mat-form-field>
+  <button mat-raised-button color="primary" type="submit">Submit</button>
+</form>

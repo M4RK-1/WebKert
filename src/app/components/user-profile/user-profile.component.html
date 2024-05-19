@@ -1,0 +1,15 @@
+<!-- src/app/components/user-profile/user-profile.component.html -->
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Username</mat-label>
+    <input matInput formControlName="username" required>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" required>
+  </mat-form-field>
+  <div *ngFor="let setting of settings">
+    <mat-checkbox [formControlName]="setting">{{ setting }}</mat-checkbox>
+  </div>
+  <button mat-raised-button color="primary" type="submit">Save</button>
+</form>

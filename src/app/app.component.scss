@@ -1,0 +1,37 @@
+/* src/app/app.component.scss */
+
+.sidenav-container {
+  height: 100vh; /* Full viewport height */
+}
+
+.sidenav {
+  height: 100%; /* Full height of the container */
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Equal space between items */
+  height: 95%;
+}
+
+.mat-nav-list a {
+  flex-grow: 1; /* Ensure all items take up equal space */
+  display: flex;
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  border: 2px solid transparent; /* Default border */
+  padding: 8px;
+  margin: 4px 0;
+  transition: border-color 0.3s; /* Smooth transition for border color */
+}
+
+.sidebar {
+  background-color: #b53f51 !important;
+}
+
+
+.main-content {
+  padding: 16px;
+  height: calc(100vh - 200px); /* Adjust based on toolbar height */
+}
